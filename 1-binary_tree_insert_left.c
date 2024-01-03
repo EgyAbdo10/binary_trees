@@ -12,10 +12,11 @@ return (NULL);
 binary_tree_t *new_node = binary_tree_node(parent, value);
 if (new_node == NULL)
 return (NULL);
-binary_tree_t *old_left = parent->left;
+if (parent->left != NULL)
+{
+parent->left->parent = new_node;
+new_node->left = parent->left;
+}
 parent->left = new_node;
-if (old_left != NULL)
-new_node->left = old_left;
-
-return (parent->left);
+return (new_node);
 }
