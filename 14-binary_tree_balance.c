@@ -50,8 +50,6 @@ path *= -1;
 return (path);
 }
 left_path = get_longest_path(tree->left);
-printf("left path: %d\n", left_path);
 right_path = get_longest_path(tree->right);
-printf("right path: %d\n", right_path);
 return (left_path - right_path);
 }
