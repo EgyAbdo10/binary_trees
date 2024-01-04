@@ -36,10 +36,10 @@ return (left_count + right_count);
 
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-    if (tree == NULL)
-    return (0);
-    if (binary_tree_nodes(tree) == binary_tree_size(tree))
-    return (1);
-    else
-    return (0);
+if (tree == NULL)
+return (0);
+if (binary_tree_nodes(tree) == binary_tree_size(tree))
+return (1);
+else
+return (0);
 }
