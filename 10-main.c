@@ -23,7 +23,7 @@ int main(void)
     printf("Depth of %d: %lu\n", root->n, depth);
     depth = binary_tree_depth(root->right);
     printf("Depth of %d: %lu\n", root->right->n, depth);
-    depth = binary_tree_depth(root->left->right);
+    depth = binary_tree_depth(NULL);
     printf("Depth of %d: %lu\n", root->left->right->n, depth);
     return (0);
 }
