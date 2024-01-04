@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-
+#include <stdio.h>
 /**
  * get_shortest_path - get the shortest height of a binary tree
  * @tree: a pointer to the tree root
@@ -8,7 +8,7 @@
 int get_shortest_path(const binary_tree_t *tree)
 {
 int left_len, right_len;
-if (tree == NULL || (tree->left == NULL || tree->right == NULL))
+if (tree == NULL || (tree->left == NULL && tree->right == NULL))
 return (0);
 left_len = get_shortest_path(tree->left);
 right_len = get_shortest_path(tree->right);
@@ -23,7 +23,9 @@ return ((left_len < right_len ? left_len : right_len) +1);
 int get_longest_path(const binary_tree_t *tree)
 {
 int left_len, right_len;
-if (tree == NULL || (tree->left == NULL && tree->right == NULL))
+if (tree == NULL)
+return (0);
+if (tree->left == NULL && tree->right == NULL)
 return (0);
 left_len = get_longest_path(tree->left);
 right_len = get_longest_path(tree->right);
@@ -37,8 +39,19 @@ return ((left_len > right_len ? left_len : right_len) +1);
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-// if (tree == NULL)
-int long_path = get_longest_path(tree);
-int short_path = get_shortest_path(tree);
-return (long_path - short_path);
+int left_path, right_path, path;
+if (tree == NULL)
+return (0);
+if (tree->left == NULL || tree->right == NULL)
+{
+path = get_longest_path(tree);
+if (tree->left == NULL)
+path *= -1;
+return (path);
+}
+left_path = get_longest_path(tree->left);
+printf("left path: %d\n", left_path);
+right_path = get_longest_path(tree->right);
+printf("right path: %d\n", right_path);
+return (left_path - right_path);
 }
