@@ -33,7 +33,11 @@ left_count++;
 right_count = binary_tree_nodes(tree->right);
 return (left_count + right_count);
 }
-
+/**
+ * binary_tree_is_full - check if a binary tree is full or not
+ * @tree: a pointer to the root node
+ * Return: 1 if full, 0 otherwise
+*/
 int binary_tree_is_full(const binary_tree_t *tree)
 {
 if (tree == NULL)
